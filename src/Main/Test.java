@@ -2,6 +2,7 @@ package Main;
 
 import javax.sound.midi.Soundbank;
 import javax.xml.ws.soap.Addressing;
+import java.awt.*;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 public class Test {
@@ -51,6 +52,7 @@ public class Test {
         int ii = scanner.nextInt();
         System.out.println("Enter name: ");
         String name = scanner.nextLine();
+        scanner.nextLine();
         System.out.println("Enter Price: ");
         int price = scanner.nextInt();
         System.out.println("Enter Cylinder Capacity: ");
@@ -80,6 +82,7 @@ public class Test {
                 System.out.println("Enter name");
                 String name = scanner.nextLine();
                 managerMotor.findAll(name);
+                System.out.println(name);
                 System.out.println("Find Success");
 
             }
@@ -87,9 +90,33 @@ public class Test {
         }while (choice!=0);
     }
     private void seacc(){
+        int choice;
+        System.out.println("------Seach--------\n"+
+                "1. Seach by price\n"+
+                "2. Seach by name\n"+
+                "3. Exit");
+        System.out.println("Enter your choice");
+        choice = scanner.nextInt();
+        do {
+            if (choice==1){
+                System.out.println("Enter Id; ");
+                int pince = scanner.nextInt();
+//                System.out.println(managerMotor.findPrice(pince));
+                managerMotor.findPrice(pince);
+                System.out.println(pince);
+                System.out.println("Find success");
+            } else if (choice==2) {
+                System.out.println("Enter name");
+                String name = scanner.nextLine();
+                managerMotor.findAll(name);
+                System.out.println(name);
+                System.out.println("Find Success");
 
+            }
+        }while (choice!=0);
     }
     private  void sortMenu(){
+
 
     }
 }
